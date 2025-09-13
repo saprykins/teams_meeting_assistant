@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Assistant Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Meeting Assistant Dashboard</h1>
+                <div class="meeting-info">
+                    <span class="meeting-title" id="meetingTitle">Loading...</span>
+                    <span class="meeting-status" id="meetingStatus">Connecting...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel - Agenda -->
+            <div class="panel agenda-panel">
+                <div class="panel-header">
+                    <h2>Meeting Agenda</h2>
+                    <button class="btn btn-secondary" id="addAgendaItem">+ Add Item</button>
+                </div>
+                <div class="panel-content">
+                    <div class="agenda-list" id="agendaList">
+                        <!-- Agenda items will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Live Suggestions -->
+            <div class="panel suggestions-panel">
+                <div class="panel-header">
+                    <h2>Live Suggestions</h2>
+                    <div class="suggestion-filters">
+                        <button class="filter-btn active" data-type="all">All</button>
+                        <button class="filter-btn" data-type="ambiguity">Ambiguity</button>
+                        <button class="filter-btn" data-type="goal_tracking">Goals</button>
+                        <button class="filter-btn" data-type="action_item">Actions</button>
+                        <button class="filter-btn" data-type="specificity">Specificity</button>
+                        <button class="filter-btn" data-type="finalization">Finalization</button>
+                    </div>
+                </div>
+                <div class="panel-content">
+                    <div class="suggestions-list" id="suggestionsList">
+                        <!-- Suggestions will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Decisions & Actions -->
+            <div class="panel decisions-panel">
+                <div class="panel-header">
+                    <h2>Decisions & Actions</h2>
+                    <button class="btn btn-primary" id="exportSummary">Export Summary</button>
+                </div>
+                <div class="panel-content">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="decisions">Decisions</button>
+                        <button class="tab-btn" data-tab="actions">Action Items</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="decisionsTab">
+                            <div class="decisions-list" id="decisionsList">
+                                <!-- Decisions will be populated here -->
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="actionsTab">
+                            <div class="actions-list" id="actionsList">
+                                <!-- Action items will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="meeting-stats">
+                    <span class="stat">
+                        <strong id="totalSuggestions">0</strong> Suggestions
+                    </span>
+                    <span class="stat">
+                        <strong id="totalDecisions">0</strong> Decisions
+                    </span>
+                    <span class="stat">
+                        <strong id="totalActions">0</strong> Action Items
+                    </span>
+                </div>
+                <div class="meeting-timer">
+                    <span id="meetingTimer">00:00:00</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="addAgendaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Agenda Item</h3>
+                <button class="close-btn" id="closeAgendaModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="agendaForm">
+                    <div class="form-group">
+                        <label for="agendaTitle">Title</label>
+                        <input type="text" id="agendaTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="agendaDescription">Description</label>
+                        <textarea id="agendaDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="agendaDuration">Duration (minutes)</label>
+                        <input type="number" id="agendaDuration" min="1" max="120" value="15">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelAgenda">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Add Item</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Export Meeting Summary</h3>
+                <button class="close-btn" id="closeExportModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="export-options">
+                    <button class="btn btn-primary" id="exportPDF">Export as PDF</button>
+                    <button class="btn btn-secondary" id="exportWord">Export as Word</button>
+                    <button class="btn btn-secondary" id="exportText">Export as Text</button>
+                </div>
+                <div class="export-preview" id="exportPreview">
+                    <!-- Export preview will be shown here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

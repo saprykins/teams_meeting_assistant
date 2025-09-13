@@ -9,7 +9,7 @@
       "value": "${{SECRET_GITHUB_TOKEN}}"
     },
     "webAppSKU": {
-      "value": "B1"
+      "value": "F1"
     },
     "botDisplayName": {
       "value": "intelligent_assistant"
