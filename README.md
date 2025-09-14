@@ -2,6 +2,46 @@
 
 A comprehensive, full-stack AI meeting assistant that joins Microsoft Teams calls, analyzes conversations in real-time, and helps meeting organizers guide meetings toward clear, actionable outcomes.
 
+## 🎬 Demo
+
+![Meeting Assistant Demo](assets/genai-teams-assistant-10.gif)
+
+### How It Works
+
+Here's how the AI assistant operates during a live meeting:
+
+1. **🎧 Listens to the Call**: The assistant joins the Teams meeting and continuously processes the conversation in real-time.
+
+2. **🧠 Analyzes & Identifies Issues**: The AI monitors the discussion and detects various types of issues:
+   - **Ambiguity**: Unclear who should execute a task or by when
+   - **Missing Details**: Vague statements lacking specific assignees or deadlines
+   - **Topic Drift**: Discussion going off-topic from the agenda
+   - **Weak Action Items**: Tasks with unclear success criteria or weak action verbs
+   - **Incomplete Decisions**: Decisions made without proper verification
+
+3. **🚨 Alerts the Organizer**: When issues are detected, the assistant immediately alerts the meeting organizer through the web dashboard (middle column), providing specific suggestions like:
+   - "Clarify who will be responsible for the cost-benefit analysis and by when"
+   - "Does this discussion on skilled labor help us select a location?"
+   - "The current topic seems to have drifted from the agenda item"
+
+4. **💬 Organizer Responds**: The meeting organizer sees the alert and raises the point with the team, facilitating discussion to resolve the issue.
+
+5. **✅ Creates Action Items**: Once the assistant understands that an issue has been resolved through discussion, it automatically creates structured action items in the right column with:
+   - Clear task descriptions
+   - Assigned team members
+   - Specific deadlines
+   - Priority levels
+
+### Demo Simulation
+
+The demo above simulates a "Car Production Plant Site Selection" meeting where:
+- The assistant identifies an ambiguous task about cost-benefit analysis
+- Organizer clarifies responsibility and timing
+- Assistant creates action item for Maria Rodriguez with Sept 19, 2025 deadline
+- Later, assistant detects discussion drift about skilled labor
+- Organizer refocuses the conversation
+- Assistant creates follow-up action item for Sarah Jones with Sept 23, 2025 deadline
+
 ## 🚀 Features
 
 ### Core Capabilities
